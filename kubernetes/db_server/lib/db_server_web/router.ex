@@ -20,9 +20,13 @@ defmodule DbServerWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", DbServerWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", DbServerWeb do
+    pipe_through :api
+
+    get  "/index", DummyController, :list
+    post "/dummy", DummyController, :new
+    get  "/get",   DummyController, :get
+  end
 
   # Enables LiveDashboard only for development
   #
