@@ -1,0 +1,2 @@
+# ElixirPlayground
+Elixir周りで勉強した内容を記録したリポジトリを作っても面白いかと思って
