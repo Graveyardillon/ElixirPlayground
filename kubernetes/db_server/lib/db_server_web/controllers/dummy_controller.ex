@@ -6,7 +6,7 @@ defmodule DbServerWeb.DummyController do
   def list(conn, _params) do
     dummies = Dummies.list_dummy()
 
-    json(conn, dummies)
+    render(conn, "index.json", dummies: dummies)
   end
 
   def new(conn, params) do
@@ -18,6 +18,6 @@ defmodule DbServerWeb.DummyController do
   def get(conn, params) do
     dummy = Dummies.get_dummy!(params["id"])
 
-    json(conn, dummy)
+    render(conn, "show.json", dummy: dummy)
   end
 end
