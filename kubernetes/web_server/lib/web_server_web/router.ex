@@ -20,9 +20,11 @@ defmodule WebServerWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", WebServerWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", WebServerWeb do
+    pipe_through :api
+
+    get  "/index", SendController, :list
+  end
 
   # Enables LiveDashboard only for development
   #
