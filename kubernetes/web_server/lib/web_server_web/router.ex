@@ -24,6 +24,8 @@ defmodule WebServerWeb.Router do
     pipe_through :api
 
     get  "/index", SendController, :list
+    post "/dummy", SendController, :new
+    get  "/get",   SendController, :get
   end
 
   # Enables LiveDashboard only for development
