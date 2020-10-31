@@ -9,6 +9,12 @@ use Mix.Config
 
 config :db_server,
   ecto_repos: [DbServer.Repo]
+config :db_server, DbServer.Repo,
+  database: "db",
+  username: "postgres",
+  password: "postgres",
+  socket_dir: "/tmp/cloudsql/e-players-293208:asia-northeast1:dummy-db",
+  port: "5432"
 
 # Configures the endpoint
 config :db_server, DbServerWeb.Endpoint,
