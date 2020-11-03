@@ -35,7 +35,7 @@ config :db_server, DbServer.Repo,
 
 config :db_server, DbServerWeb.Endpoint,
   load_from_system_env: true,
-  http: [port: 80],
+  http: [port: {:system, "PORT"}],
   check_origin: false,
   server: true,
   root: ".",
