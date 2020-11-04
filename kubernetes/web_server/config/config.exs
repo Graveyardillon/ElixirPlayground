@@ -9,11 +9,17 @@ use Mix.Config
 
 config :web_server,
   ecto_repos: [WebServer.Repo]
+config :web_server, WebServer.Repo,
+  database: "db",
+  username: "postgres",
+  password: "postgres",
+  socket_dir: "/tmp/cloudsql/e-players-293208:asia-northeast1:dummy-db",
+  port: "5432"
 
 # Configures the endpoint
 config :web_server, WebServerWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "ae1wPYiXd5zkn214pEakOKcO5JWr0C2HtNSx/CdwE1S3QX9VEONp1BussDUyhyLb",
+  secret_key_base: "85VzfG4C6TIBwPbzt0rsUD4I4mllN75Z0e2NpWA9DrU7fzZCezsprhrvqqr7CG96",
   render_errors: [view: WebServerWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: WebServer.PubSub,
   live_view: [signing_salt: "q/iJBjY6"]
