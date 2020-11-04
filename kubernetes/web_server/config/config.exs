@@ -19,7 +19,7 @@ config :web_server, WebServer.Repo,
 # Configures the endpoint
 config :web_server, WebServerWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "85VzfG4C6TIBwPbzt0rsUD4I4mllN75Z0e2NpWA9DrU7fzZCezsprhrvqqr7CG96",
+  secret_key_base: "HgTL3ih7BZTz3B1wk+KJw5anKM/OPBLmMtmt5825QYsocP/53Lrzy0Z/IwgQ3pEi",
   render_errors: [view: WebServerWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: WebServer.PubSub,
   live_view: [signing_salt: "q/iJBjY6"]

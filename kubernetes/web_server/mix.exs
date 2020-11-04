@@ -19,7 +19,7 @@ defmodule WebServer.MixProject do
             runtime_tools: :permanent
           ]
         ]
-      ]
+      ],
     ]
   end
 

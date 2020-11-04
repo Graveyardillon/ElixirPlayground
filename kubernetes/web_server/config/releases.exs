@@ -36,8 +36,9 @@ config :web_server, WebServerWeb.Endpoint,
   load_from_system_env: true,
   http: [port: {:system, "PORT"}],
   check_origin: false,
+  server: true,
   root: ".",
-  secret_key_base: "NVhcyNQmZOa6P58rjWrZSrhi6XmvmIBdNXhEqCoTrVsEmN2icykJRlVvJSwtl2Ks"
+  secret_key_base: "HgTL3ih7BZTz3B1wk+KJw5anKM/OPBLmMtmt5825QYsocP/53Lrzy0Z/IwgQ3pEi"
 
 # ## Using releases (Elixir v1.9+)
 #
