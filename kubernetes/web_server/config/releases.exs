@@ -40,6 +40,8 @@ config :web_server, WebServerWeb.Endpoint,
   root: ".",
   secret_key_base: "HgTL3ih7BZTz3B1wk+KJw5anKM/OPBLmMtmt5825QYsocP/53Lrzy0Z/IwgQ3pEi"
 
+config :web_server, :db_domain_url, "http://35.185.146.60"
+
 # ## Using releases (Elixir v1.9+)
 #
 # If you are doing OTP releases, you need to instruct Phoenix

@@ -36,4 +36,5 @@ config :phoenix, :json_library, Jason
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
 
-config :web_server, :db_domain_url, "http://localhost:4000"
+config :web_server, :db_domain_url, "http://35.185.146.60"
+
