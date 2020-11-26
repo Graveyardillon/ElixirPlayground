@@ -104,6 +104,7 @@ defmodule Mac.Assertions do
   value. In such cases, simply use `Kernel.==/2` or
   `Kernel.match?/2`.
   """
+
   defmacro my_assert({:=, meta, [left, right]} = assertion) do
     code = escape_quoted(:assert, meta, assertion)
 
@@ -389,13 +390,37 @@ defmodule Mac.Assertions do
       assert false, "it will never be true"
 
   """
-  def my_assert(value, message) when is_binary(message) do
-    my_assert(value, message: message)
+  defmacro my_assert({:=, meta, [left, right]} = assertion, message) do
+    code = escape_quoted(:assert, meta, assertion)
+
+    check = suppress_warning(
+      quote do
+        case right do
+          x when x in [nil, false] ->
+            raise Mac.AssertionError,
+              expr: expr,
+              message: unquote(message)
+
+          _ ->
+            :ok
+        end
+      end
+    )
+
+    __match__(left, right, code, check, __CALLER__)
   end
 
-  def my_assert(value, opts) when is_list(opts) do
-    unless value, do: raise(Mac.AssertionError, opts)
-    true
+  defmacro my_assert(value, opts) when is_list(opts) do
+    quote do
+      unless unquote(value), do: raise(Mac.AssertionError, unquote(opts))
+      true
+    end
+  end
+
+  defmacro my_assert(value, message) do
+    quote do
+      my_assert(unquote(value), message: unquote(message))
+    end
   end
 
   @doc """

@@ -2,6 +2,7 @@ defmodule MacTest do
   use ExUnit.Case
 
   require Mac.Assertions
+  import Mac.Assertions
   alias Mac.Assertions
   
   test "assert test" do
@@ -18,5 +19,9 @@ defmodule MacTest do
 
   test "my assert test2" do
     Assertions.my_assert 1 = 2, "1 is not 2"
+  end
+
+  test "my assert test3" do
+    Assertions.my_assert 1 = 2
   end
 end
